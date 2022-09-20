@@ -20,6 +20,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.lzy.okgo.OkGo;
 
+/**
+ * 科室下的医生列表
+ */
 public class DoctorListActivity extends BaseActivity {
     private String depart_name;
 

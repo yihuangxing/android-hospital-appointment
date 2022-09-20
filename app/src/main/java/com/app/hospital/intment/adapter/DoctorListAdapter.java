@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.app.hospital.intment.R;
 import com.app.hospital.intment.entity.DoctorInfo;
+import com.app.hospital.intment.utils.GlideEngine;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
@@ -21,6 +22,8 @@ public class DoctorListAdapter extends BaseQuickAdapter<DoctorInfo, BaseViewHold
         baseViewHolder.setText(R.id.doctor_name, doctorInfo.getDoctor_name());
         baseViewHolder.setText(R.id.depart_name, "科室：" + doctorInfo.getDepart_name());
         baseViewHolder.setText(R.id.good_at, "擅长：" + doctorInfo.getGood_at());
+
+        GlideEngine.createGlideEngine().loadGridImage(getContext().getApplicationContext(), doctorInfo.getDoctor_avatar(), baseViewHolder.getView(R.id.doctor_avatar));
 
     }
 }

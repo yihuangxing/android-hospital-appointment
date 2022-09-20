@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
-        app:title="医生登录"
+        app:title="管理员登录"
         app:titleTextColor="@color/white">
 
     </androidx.appcompat.widget.Toolbar>
@@ -61,8 +61,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:background="@null"
-                    android:text="赵铁柱"
-                    android:hint="请输入医生姓名"
+                    android:text="super"
+                    android:hint="请输入用户名"
                     android:textSize="14sp" />
 
 
@@ -101,7 +101,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="请输入密码"
-                    android:text="123456"
+                    android:text="123"
                     android:inputType="textPassword"
                     android:textSize="14sp" />
 

@@ -1,7 +1,10 @@
 package com.app.hospital.intment.entity;
 
-public class SchedulInfo {
+import java.io.Serializable;
+
+public class SchedulInfo implements Serializable {
     private int uid;
+    private int doctor_id;
     private String doctor_name;
     private String doctor_day;
     private String time_am;
@@ -81,5 +84,13 @@ public class SchedulInfo {
 
     public void setPm_state(int pm_state) {
         this.pm_state = pm_state;
+    }
+
+    public int getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(int doctor_id) {
+        this.doctor_id = doctor_id;
     }
 }

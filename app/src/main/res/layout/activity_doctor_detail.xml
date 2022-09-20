@@ -17,13 +17,14 @@
         app:titleTextColor="@color/white" />
 
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center_vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/doctor_avatar"
             android:layout_width="80dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
@@ -33,7 +34,9 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/doctor_avatar"
             android:orientation="vertical">
 
             <TextView
@@ -46,16 +49,28 @@
                 android:textSize="17sp" />
 
             <TextView
-
                 android:id="@+id/depart_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 android:text="科室：" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/collection"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@mipmap/ic_coll_normal" />
+
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"

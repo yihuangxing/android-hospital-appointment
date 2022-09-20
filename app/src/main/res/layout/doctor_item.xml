@@ -11,6 +11,7 @@
         android:layout_height="100dp">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/doctor_avatar"
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"

@@ -32,10 +32,44 @@ public class ApiConstants {
     //获取科室列表
     public final static String DEPARTMENT_URL = BASE_URL + "/user/department";
 
+    //删除科室
+    public final static String DELDEPARTMENT_URL = BASE_URL + "/user/delDepartment";
+
+    //添加科室
+    public final static String ADDDEPARTMENT_URL = BASE_URL + "/user/addDepartment";
+
+    //修改科室
+    public final static String UPDATEDEPARTMENT_URL = BASE_URL + "/user/updateDepartment";
+
 
     //获取科室下的医生列表
     public final static String DOCTORLIST_URL = BASE_URL + "/user/doctorList";
 
-    //获取当前医生的排班列表
+    //删除医生
+    public final static String DEL_DOCTOR_URL = BASE_URL + "/user/delDoctorList";
+
+    //添加医生
+    public final static String ADD_DOCTOR_URL = BASE_URL + "/user/AddDoctorList";
+
+    //修改医生
+    public final static String UPDATE_DOCTOR_URL = BASE_URL + "/user/updateDoctorList";
+
+    //通过doctor_name 获取当前医生的排班列表
     public final static String SCHEDULLIST_URL = BASE_URL + "/user/schedulList";
+
+    //根据医生添加排班信息
+    public final static String ADD_SCHEDUL_URL = BASE_URL + "/user/AddSchedulList";
+
+    //修改排班
+    public final static String UPDATE_SCHEDUL_URL = BASE_URL + "/user/updateSchedulList";
+
+
+    //收藏
+    public final static String COLLECTION_URL = BASE_URL + "/user/collection";
+
+    //检查是否收藏
+    public final static String CHECKCOLLECTION_URL = BASE_URL + "/user/checkCollection";
+
+    //获取注册医生数据
+    public final static String REGISTER_DOCTOR_URL = BASE_URL + "/user/registerDoctorList";
 }

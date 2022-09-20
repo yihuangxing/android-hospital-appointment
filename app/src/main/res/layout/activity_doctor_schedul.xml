@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.DoctorMainActivity">
+    tools:context=".activity.DoctorSchedulActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,52 +13,65 @@
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
         app:navigationIcon="@mipmap/img_back"
-        app:title="欢迎登录医生管理系统"
+        app:title="我的排班"
         app:titleTextColor="@color/white" />
-
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_doctor_bg" />
-
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-
-        <TextView
-            android:id="@+id/my_schedul"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="我的排班"
-            android:textColor="@color/text_color" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/teal_200" />
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="我的预约"
-            android:textColor="@color/text_color" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/teal_200" />
+        android:background="@color/white" />
 
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/teal_200">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:text="日期"
+            android:textColor="@color/white" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text="上午"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="1dp"
+
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text="下午"
+            android:textColor="@color/white" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/schedul_item" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

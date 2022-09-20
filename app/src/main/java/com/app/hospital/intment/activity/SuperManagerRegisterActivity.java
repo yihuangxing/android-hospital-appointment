@@ -1,6 +1,5 @@
 package com.app.hospital.intment.activity;
 
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -8,22 +7,17 @@ import android.widget.EditText;
 import com.app.hospital.intment.ApiConstants;
 import com.app.hospital.intment.R;
 import com.app.hospital.intment.base.BaseActivity;
-import com.app.hospital.intment.entity.UserInfo;
 import com.app.hospital.intment.http.HttpStringCallback;
-import com.app.hospital.intment.utils.GsonUtils;
 import com.lzy.okgo.OkGo;
 
-/**
- * 医生端登录
- */
-public class DoctorLoginActivity extends BaseActivity {
+public class SuperManagerRegisterActivity extends BaseActivity {
     private EditText username;
     private EditText password;
     private EditText mobile;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_doctor_login;
+        return R.layout.activity_super_manager_register;
     }
 
     @Override
@@ -36,30 +30,20 @@ public class DoctorLoginActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-
-        //注册
         findViewById(R.id.register).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DoctorLoginActivity.this, DoctorRegisterActivity.class));
-            }
-        });
-
-
-        //登录
-        findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username_str = username.getText().toString().trim();
                 String password_str = password.getText().toString().trim();
-                if (TextUtils.isEmpty(username_str) || TextUtils.isEmpty(password_str)) {
-                    showToast("请完善登录信息");
+                String mobile_str = mobile.getText().toString().trim();
+
+                if (TextUtils.isEmpty(username_str) || TextUtils.isEmpty(password_str) || TextUtils.isEmpty(mobile_str)) {
+                    showToast("请完善注册信息");
                 } else {
-                    login(username_str, password_str);
+                    register(username_str, password_str, mobile_str);
                 }
             }
         });
-
     }
 
     @Override
@@ -67,26 +51,21 @@ public class DoctorLoginActivity extends BaseActivity {
 
     }
 
-    /**
-     * 登录
+    /***
+     * 注册
      */
-    private void login(String username, String password) {
-        OkGo.<String>get(ApiConstants.LOGIN_URL)
+    public void register(String username, String password, String mobile) {
+        OkGo.<String>get(ApiConstants.REGISTER_URL)
                 .params("username", username)
                 .params("password", password)
-                .params("register_type", 1)
+                .params("mobile", mobile)
+                .params("register_type", 2)
                 .execute(new HttpStringCallback(this) {
                     @Override
                     protected void onSuccess(String msg, String response) {
-                        UserInfo userInfo = GsonUtils.parseJson(response, UserInfo.class);
-                        ApiConstants.setUserInfo(userInfo);
-                        if (userInfo != null) {
-                            if (userInfo.getRegister_type() == 0) {
-                                startActivity(new Intent(DoctorLoginActivity.this, UserMainActivity.class));
-                            } else if (userInfo.getRegister_type() == 1) {
-                                startActivity(new Intent(DoctorLoginActivity.this, DoctorMainActivity.class));
-                            }
-                        }
+                        showToast(msg);
+                        //注册成功跳转到登录页面登录
+                        finish();
                     }
 
                     @Override
@@ -94,6 +73,5 @@ public class DoctorLoginActivity extends BaseActivity {
                         showToast(response);
                     }
                 });
-
     }
 }

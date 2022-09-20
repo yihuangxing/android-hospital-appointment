@@ -1,16 +1,17 @@
-package com.app.hospital.intment.fragment;
-
-import android.content.Intent;
-import android.view.View;
+package com.app.hospital.intment.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import com.app.hospital.intment.ApiConstants;
 import com.app.hospital.intment.R;
-import com.app.hospital.intment.activity.DoctorListActivity;
 import com.app.hospital.intment.adapter.DepartmentListAdapter;
-import com.app.hospital.intment.base.BaseFragment;
+import com.app.hospital.intment.base.BaseActivity;
 import com.app.hospital.intment.entity.DepartmentInfo;
 import com.app.hospital.intment.entity.DepartmentInfoList;
 import com.app.hospital.intment.http.HttpStringCallback;
@@ -19,39 +20,42 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.lzy.okgo.OkGo;
 
-public class HomeFragment extends BaseFragment {
-    private DepartmentListAdapter mDepartmentListAdapter;
-
+/**
+ * 选择科室
+ */
+public class SelectDepartActivity extends BaseActivity {
     private RecyclerView recyclerView;
+    private DepartmentListAdapter mDepartmentListAdapter;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_home;
+        return R.layout.activity_select_depart;
     }
 
     @Override
     protected void initView() {
 
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         mDepartmentListAdapter = new DepartmentListAdapter();
         recyclerView.setAdapter(mDepartmentListAdapter);
 
-    }
 
-    @Override
-    protected void setListener() {
-
-
-        //列表点击事件
+        //点击事件
         mDepartmentListAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 DepartmentInfo departmentInfo = (DepartmentInfo) adapter.getData().get(position);
-                Intent intent = new Intent(getActivity(), DoctorListActivity.class);
+
+                Intent intent = getIntent();
                 intent.putExtra("depart_name", departmentInfo.getDepartment_name());
-                startActivity(intent);
+                setResult(3000, intent);
+                finish();
             }
         });
+    }
+
+    @Override
+    protected void setListener() {
 
     }
 
@@ -66,7 +70,7 @@ public class HomeFragment extends BaseFragment {
 
     private void getDepartmentList() {
         OkGo.<String>get(ApiConstants.DEPARTMENT_URL)
-                .execute(new HttpStringCallback(getActivity()) {
+                .execute(new HttpStringCallback(this) {
                     @Override
                     protected void onSuccess(String msg, String response) {
                         DepartmentInfoList departmentInfoList = GsonUtils.parseJson(response, DepartmentInfoList.class);

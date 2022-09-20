@@ -1,6 +1,5 @@
 package com.app.hospital.intment.activity;
 
-
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,20 +14,22 @@ import com.app.hospital.intment.utils.GsonUtils;
 import com.lzy.okgo.OkGo;
 
 /**
- * 用户登录
+ * 管理员登录
  */
-public class UserLoginActivity extends BaseActivity {
+public class SuperManagerLoginActivity extends BaseActivity {
+
     private EditText username;
     private EditText password;
     private EditText mobile;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_user_login;
+        return R.layout.activity_super_manager_login;
     }
 
     @Override
     protected void initView() {
+
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         mobile = findViewById(R.id.mobile);
@@ -37,12 +38,11 @@ public class UserLoginActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-
         //注册
         findViewById(R.id.register).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserLoginActivity.this, UserRegisterActivity.class));
+                startActivity(new Intent(SuperManagerLoginActivity.this, SuperManagerRegisterActivity.class));
             }
         });
 
@@ -60,31 +60,13 @@ public class UserLoginActivity extends BaseActivity {
                 }
             }
         });
-
-        //切换
-        findViewById(R.id.switchover).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UserLoginActivity.this, DoctorLoginActivity.class));
-            }
-        });
-
-
-        //超级管理员
-        findViewById(R.id.super_manager).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UserLoginActivity.this, SuperManagerLoginActivity.class));
-            }
-        });
-
-
     }
 
     @Override
     protected void initData() {
 
     }
+
 
     /**
      * 登录
@@ -93,7 +75,7 @@ public class UserLoginActivity extends BaseActivity {
         OkGo.<String>get(ApiConstants.LOGIN_URL)
                 .params("username", username)
                 .params("password", password)
-                .params("register_type", 0)
+                .params("register_type", 2)
                 .execute(new HttpStringCallback(this) {
                     @Override
                     protected void onSuccess(String msg, String response) {
@@ -101,9 +83,11 @@ public class UserLoginActivity extends BaseActivity {
                         ApiConstants.setUserInfo(userInfo);
                         if (userInfo != null) {
                             if (userInfo.getRegister_type() == 0) {
-                                startActivity(new Intent(UserLoginActivity.this, UserMainActivity.class));
+                                startActivity(new Intent(SuperManagerLoginActivity.this, UserMainActivity.class));
                             } else if (userInfo.getRegister_type() == 1) {
-                                startActivity(new Intent(UserLoginActivity.this, DoctorMainActivity.class));
+                                startActivity(new Intent(SuperManagerLoginActivity.this, DoctorMainActivity.class));
+                            } else if (userInfo.getRegister_type() == 2) {
+                                startActivity(new Intent(SuperManagerLoginActivity.this, SuperManagerActivity.class));
                             }
                         }
                     }
@@ -115,5 +99,4 @@ public class UserLoginActivity extends BaseActivity {
                 });
 
     }
-
 }

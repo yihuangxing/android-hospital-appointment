@@ -13,16 +13,33 @@
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
         app:navigationIcon="@mipmap/img_back"
-        app:title="欢迎登录医生管理系统"
+        app:title="欢迎登录超级管理员后台系统"
         app:titleTextColor="@color/white" />
 
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_doctor_bg" />
+        android:src="@mipmap/ic_super_bg" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="超级管理员"
+        android:textColor="@color/teal_200"
+        android:textStyle="bold" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/teal_200" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -30,12 +47,12 @@
 
 
         <TextView
-            android:id="@+id/my_schedul"
+           android:id="@+id/depart_manager"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="我的排班"
+            android:text="科室管理"
             android:textColor="@color/text_color" />
 
         <View
@@ -45,11 +62,12 @@
 
 
         <TextView
+            android:id="@+id/doctor_manager"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="我的预约"
+            android:text="医生管理"
             android:textColor="@color/text_color" />
 
 

@@ -5,17 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.UserLoginActivity">
-
+    tools:context=".activity.UserRegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
-        app:title="医生登录"
-        app:titleTextColor="@color/white">
-
-    </androidx.appcompat.widget.Toolbar>
+        app:navigationIcon="@mipmap/img_back"
+        app:title="管理员注册"
+        app:titleTextColor="@color/white" />
 
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -61,8 +60,46 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:background="@null"
-                    android:text="赵铁柱"
-                    android:hint="请输入医生姓名"
+                    android:hint="请输入用户名"
+                    android:textSize="14sp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#f5f5f5"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="手机号:"
+                    android:textColor="@color/text_color" />
+
+
+                <EditText
+                    android:id="@+id/mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入手机号"
+                    android:inputType="number"
+                    android:maxLength="11"
                     android:textSize="14sp" />
 
 
@@ -101,7 +138,6 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="请输入密码"
-                    android:text="123456"
                     android:inputType="textPassword"
                     android:textSize="14sp" />
 
@@ -122,26 +158,15 @@
 
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/register"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/teal_200"
-                android:text="登录" />
+                android:text="注册" />
 
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:backgroundTint="@color/white"
-            android:padding="10dp"
-            android:text="还未注册？"
-            android:textColor="@color/teal_200" />
-
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 </androidx.appcompat.widget.LinearLayoutCompat>

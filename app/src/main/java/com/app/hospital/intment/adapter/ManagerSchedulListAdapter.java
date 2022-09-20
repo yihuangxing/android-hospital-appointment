@@ -13,8 +13,8 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 /**
  * desc   :
  */
-public class SchedulListAdapter extends BaseQuickAdapter<SchedulInfo, BaseViewHolder> {
-    public SchedulListAdapter() {
+public class ManagerSchedulListAdapter extends BaseQuickAdapter<SchedulInfo, BaseViewHolder> {
+    public ManagerSchedulListAdapter() {
         super(R.layout.schedul_item);
     }
 
@@ -42,38 +42,7 @@ public class SchedulListAdapter extends BaseQuickAdapter<SchedulInfo, BaseViewHo
             baseViewHolder.setBackgroundColor(R.id.time_pm, Color.parseColor("#f5f5f5"));
             baseViewHolder.setTextColor(R.id.time_pm, Color.parseColor("#999999"));
         }
-        baseViewHolder.getView(R.id.time_am).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (null != mSchedulListener) {
-                    mSchedulListener.am(schedulInfo);
-                }
-            }
-        });
-
-        baseViewHolder.getView(R.id.time_pm).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (null != mSchedulListener) {
-                    mSchedulListener.pm(schedulInfo);
-                }
-            }
-        });
-
 
     }
 
-
-    private SchedulListener mSchedulListener;
-
-
-    public void setSchedulListener(SchedulListener schedulListener) {
-        mSchedulListener = schedulListener;
-    }
-
-    public interface SchedulListener {
-        void pm(SchedulInfo schedulInfo);
-
-        void am(SchedulInfo schedulInfo);
-    }
 }

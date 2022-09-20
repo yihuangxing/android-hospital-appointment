@@ -3,11 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_depart_list.xml" value="0.2640625" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_all_list.xml" value="0.2203125" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_detail.xml" value="0.2640625" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_list.xml" value="0.24895833333333334" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_login.xml" value="0.2140625" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_main.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_register.xml" value="0.19895833333333332" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_schedul.xml" value="0.21458333333333332" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_schedul_list.xml" value="0.2630208333333333" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_select_depart.xml" value="0.23958333333333334" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_select_doctor.xml" value="0.24895833333333334" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_super_manager.xml" value="0.246875" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_super_manager_login.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_super_manager_register.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_update_depart.xml" value="0.2640625" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_update_doctor.xml" value="0.2264151024877837" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_update_schedul_list.xml" value="0.2630208333333333" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_login.xml" value="0.25" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_main.xml" value="0.23072916666666668" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_register.xml" value="0.2640625" />
