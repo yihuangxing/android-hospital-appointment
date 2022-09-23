@@ -67,9 +67,26 @@ public class ApiConstants {
     //收藏
     public final static String COLLECTION_URL = BASE_URL + "/user/collection";
 
+    //查询收藏列表
+    public final static String QUERY_COLLECTION_URL = BASE_URL + "/user/queryCollectionList";
+
     //检查是否收藏
     public final static String CHECKCOLLECTION_URL = BASE_URL + "/user/checkCollection";
 
     //获取注册医生数据
     public final static String REGISTER_DOCTOR_URL = BASE_URL + "/user/registerDoctorList";
+
+
+    //预约 下单
+    public final static String CREATE_ORDER_URL = BASE_URL + "/user/createOrder";
+
+    //查询我的预约
+    public final static String QUERY_ORDER_LIST_URL = BASE_URL + "/user/queryListOrder";
+
+
+    //支付
+    public final static String PAY_ORDER_URL = BASE_URL + "/user/payOrder";
+
+    //删除预约记录
+    public final static String DEL_ORDER_URL = BASE_URL + "/user/delOrder";
 }

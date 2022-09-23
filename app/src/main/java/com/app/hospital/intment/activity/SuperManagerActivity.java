@@ -39,6 +39,13 @@ public class SuperManagerActivity extends BaseActivity {
                 startActivity(new Intent(SuperManagerActivity.this, DoctorAllListActivity.class));
             }
         });
+
+        findViewById(R.id.order_manager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SuperManagerActivity.this, OrderListActivity.class));
+            }
+        });
     }
 
     @Override

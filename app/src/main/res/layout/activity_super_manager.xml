@@ -47,7 +47,7 @@
 
 
         <TextView
-           android:id="@+id/depart_manager"
+            android:id="@+id/depart_manager"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -68,6 +68,42 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="医生管理"
+            android:textColor="@color/text_color" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/teal_200" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+
+        <TextView
+            android:id="@+id/order_manager"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="预约记录"
+            android:textColor="@color/text_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/teal_200" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="..."
             android:textColor="@color/text_color" />
 
 

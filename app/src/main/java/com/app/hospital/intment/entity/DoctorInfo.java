@@ -9,6 +9,15 @@ public class DoctorInfo implements Serializable {
     private String doctor_avatar;
     private String good_at;
 
+
+    public DoctorInfo(int uid, String depart_name, String doctor_name, String doctor_avatar, String good_at) {
+        this.uid = uid;
+        this.depart_name = depart_name;
+        this.doctor_name = doctor_name;
+        this.doctor_avatar = doctor_avatar;
+        this.good_at = good_at;
+    }
+
     public int getUid() {
         return uid;
     }

@@ -43,4 +43,5 @@ dependencies {
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.2.0'
     implementation 'io.github.lucksiege:pictureselector:v3.10.6'
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    implementation 'com.github.li-xiaojun:XPopup:2.9.1'
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AgreementActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_200"
+        app:navigationIcon="@mipmap/img_back"
+        app:title="用户协议"
+        app:titleTextColor="@color/white" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="4dp"
+            android:padding="10dp"
+            android:text="(1)根据该协议条款使用该软件;
+
+　　(2)复制和备份;
+
+　　(3)不对文档作任何增加或修改以文档下载的最初形式将此软件拷贝给他人;
+
+　　(4)在网址上通过email或者其他任何物理媒体分发该软件。
+
+　　你不可以：
+
+　　(1)对本系统进行逆向工程、反汇编、解体拆卸或任何试图发现该软件工作程序获源代码的行为;
+
+　　(2)未经_________有限公司的书面许可出售租赁该程序;
+
+　　(3)创造派生性产品包括含有该系统的更大的系统或另外的程序和包裹;
+
+　　(4)将该软件和与_________没有分离授权协议的产品或山版物捆绑销售;
+
+　　(5)使用和拷贝没有_________授权的包含在_________之中的icons，1ogosorartwork;
+
+　　(6)改变_________广告图案内部程序的运行，改变广告及其内容、广告出现的时间或使其他功能丧失的行为;
+
+　　(7)使用该软件改进其他产品和服务;
+
+　　(8)任何反相工程、反相编译和反汇编以及其他任何试图发现由该内程旗帜广告和该软件中网络共享功能所使用的协议的行为;
+
+　　(9)在任何图像中使用该软件在任何情况下以任何方式对任何个人和商业实体的诋毁行为;或暗示由软件、软件供应商、软件许可商或其他在该软件中描绘的实体任何形式的认可;
+
+　　(10)因软件拷贝控诉媒体和运输超过了合理成本。
+
+　　3.条款
+
+　　只要你使用该软件，该授权协议就持续有效，除非由于你不遵守该协议的条款而被终止使用权利。一旦协议终止，你必须同意毁掉你所有的该软件的所有拷贝。
+
+　　4.有限的保证
+
+　　_________不保证也不能保证你由于使用该软件或其他相关项目因此可以得到的结果的履行。_________公司对于第三方、商业行为能力和任何特殊的目的的非侵害和适当性不承担任何保证，包括明示和暗示的。没有_________公司给予的口头或者书面通知或者建议，他的分销商，代理商或者雇员将给予指证_________不对安全担保，也不对数据的丢失和由于在互联网上使用该软件带来的任何风险担保。美国有些州禁止排除暗示担保的限制，所以上述例外或限制也许不适用于你。
+
+　　5.有限责任
+
+　　_________的公司不对任何情况下带来的损失承担责任，包括使用该软件、不能使用.."
+            android:textColor="@color/text_color" />
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -5,20 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".activity.CollectionActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
-        app:title="我的预约"
+        app:navigationIcon="@mipmap/img_back"
+        app:title="我的收藏"
         app:titleTextColor="@color/white" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/order_list_item"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/doctor_item" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

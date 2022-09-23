@@ -5,20 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".activity.OrderListActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
-        app:title="我的预约"
+        app:navigationIcon="@mipmap/img_back"
+        app:title="预约记录"
         app:titleTextColor="@color/white" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/order_list_item"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/order_list_item" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

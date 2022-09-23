@@ -78,6 +78,7 @@ public class UserMainActivity extends BaseActivity implements BottomNavigationBa
                 fragmentTransaction.add(R.id.content, mOrderFragment);
             } else {
                 fragmentTransaction.show(mOrderFragment);
+                mOrderFragment.refreshData();
             }
         } else {
             if (mMineFragment == null) {
@@ -85,6 +86,7 @@ public class UserMainActivity extends BaseActivity implements BottomNavigationBa
                 fragmentTransaction.add(R.id.content, mMineFragment);
             } else {
                 fragmentTransaction.show(mMineFragment);
+
             }
         }
         fragmentTransaction.commit();

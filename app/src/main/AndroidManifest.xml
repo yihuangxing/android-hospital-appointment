@@ -37,6 +37,22 @@
         android:theme="@style/Theme.Androidhospitalappointment"
         tools:targetApi="31">
         <activity
+            android:name=".activity.OrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PayDialogActivity"
+            android:exported="false"
+            android:theme="@style/progress_dialog_theme" />
+        <activity
+            android:name=".activity.CollectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.UpdatePwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AgreementActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SelectDoctorActivity"
             android:exported="false" />
         <activity

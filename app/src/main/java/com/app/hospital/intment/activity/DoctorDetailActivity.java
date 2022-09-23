@@ -1,6 +1,8 @@
 package com.app.hospital.intment.activity;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,9 +16,11 @@ import com.app.hospital.intment.base.BaseActivity;
 import com.app.hospital.intment.entity.DoctorInfo;
 import com.app.hospital.intment.entity.SchedulInfo;
 import com.app.hospital.intment.entity.SchedulInfoList;
+import com.app.hospital.intment.entity.UserInfo;
 import com.app.hospital.intment.http.HttpStringCallback;
 import com.app.hospital.intment.utils.GlideEngine;
 import com.app.hospital.intment.utils.GsonUtils;
+import com.app.hospital.intment.utils.Tools;
 import com.lzy.okgo.OkGo;
 
 
@@ -24,19 +28,16 @@ import com.lzy.okgo.OkGo;
  * 排班
  */
 public class DoctorDetailActivity extends BaseActivity {
-    private DoctorInfo info;
 
     private TextView doctor_name;
     private TextView depart_name;
     private TextView good_at;
 
-    private AppCompatImageView collection,doctor_avatar;
-
-
+    private AppCompatImageView collection, doctor_avatar;
     private RecyclerView recyclerView;
     private SchedulListAdapter mSchedulListAdapter;
 
-    private boolean is_first;
+    private DoctorInfo doctorInfo;
 
     @Override
     protected int getLayoutId() {
@@ -45,7 +46,7 @@ public class DoctorDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        info = (DoctorInfo) getIntent().getSerializableExtra("info");
+        doctorInfo = (DoctorInfo) getIntent().getSerializableExtra("info");
 
         doctor_name = findViewById(R.id.doctor_name);
         depart_name = findViewById(R.id.depart_name);
@@ -54,11 +55,11 @@ public class DoctorDetailActivity extends BaseActivity {
         collection = findViewById(R.id.collection);
         doctor_avatar = findViewById(R.id.doctor_avatar);
 
-        if (null != info) {
-            doctor_name.setText(info.getDoctor_name());
-            depart_name.setText("科室：" + info.getDepart_name());
-            good_at.setText("擅长：" + info.getGood_at());
-            GlideEngine.createGlideEngine().loadGridImage(this,info.getDoctor_avatar(),doctor_avatar);
+        if (null != doctorInfo) {
+            doctor_name.setText(doctorInfo.getDoctor_name());
+            depart_name.setText("科室：" + doctorInfo.getDepart_name());
+            good_at.setText("擅长：" + doctorInfo.getGood_at());
+            GlideEngine.createGlideEngine().loadGridImage(this, doctorInfo.getDoctor_avatar(), doctor_avatar);
         }
 
     }
@@ -68,8 +69,8 @@ public class DoctorDetailActivity extends BaseActivity {
         collection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (null != info) {
-                    collection(info);
+                if (null != doctorInfo) {
+                    collection(doctorInfo);
                 }
             }
         });
@@ -85,7 +86,22 @@ public class DoctorDetailActivity extends BaseActivity {
             @Override
             public void pm(SchedulInfo schedulInfo) {
                 if (schedulInfo.getPm_state() == 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DoctorDetailActivity.this);
+                    builder.setTitle("确定是否预约?");
+                    builder.setMessage("预约成功后，可在个人首页【预约】中查看");
+                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            createOrderInfo(schedulInfo.getTime_pm(), "下午", schedulInfo.getFree_pm());
+                        }
+                    });
+                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
 
+                        }
+                    });
+                    builder.show();
                 } else {
                     showToast("预约已满，请另外选择");
                 }
@@ -94,6 +110,22 @@ public class DoctorDetailActivity extends BaseActivity {
             @Override
             public void am(SchedulInfo schedulInfo) {
                 if (schedulInfo.getAm_state() == 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DoctorDetailActivity.this);
+                    builder.setTitle("确定是否预约?");
+                    builder.setMessage("预约成功后，可在个人首页【预约】中查看");
+                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            createOrderInfo(schedulInfo.getTime_am(), "上午", schedulInfo.getFree_am());
+                        }
+                    });
+                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+                    builder.show();
 
                 } else {
                     showToast("预约已满，请另外选择");
@@ -102,9 +134,9 @@ public class DoctorDetailActivity extends BaseActivity {
         });
         recyclerView.setAdapter(mSchedulListAdapter);
 
-        if (null != info) {
-            getSchedulListData(info.getDoctor_name());
-            checkCollection(info.getDoctor_name());
+        if (null != doctorInfo) {
+            getSchedulListData(doctorInfo.getDoctor_name());
+            checkCollection(doctorInfo.getDoctor_name());
         }
 
     }
@@ -135,48 +167,88 @@ public class DoctorDetailActivity extends BaseActivity {
      * 点击收藏
      */
     public void collection(DoctorInfo doctorInfo) {
-        OkGo.<String>get(ApiConstants.COLLECTION_URL)
-                .params("doctor_name", doctorInfo.getDoctor_name())
-                .params("depart_name", doctorInfo.getDepart_name())
-                .params("good_at", doctorInfo.getGood_at())
-                .params("doctor_avatar", doctorInfo.getDoctor_avatar())
-                .execute(new HttpStringCallback(this) {
-                    @Override
-                    protected void onSuccess(String msg, String response) {
-                        showToast(msg);
-                        if (msg.contains("收藏成功")) {
-                            collection.setImageResource(R.mipmap.ic_coll);
-                        } else {
-                            collection.setImageResource(R.mipmap.ic_coll_normal);
+        UserInfo userInfo = ApiConstants.getUserInfo();
+        if (null != userInfo) {
+            OkGo.<String>get(ApiConstants.COLLECTION_URL)
+                    .params("doctor_name", doctorInfo.getDoctor_name())
+                    .params("depart_name", doctorInfo.getDepart_name())
+                    .params("good_at", doctorInfo.getGood_at())
+                    .params("doctor_avatar", doctorInfo.getDoctor_avatar())
+                    .params("username", userInfo.getUsername())
+                    .execute(new HttpStringCallback(this) {
+                        @Override
+                        protected void onSuccess(String msg, String response) {
+                            showToast(msg);
+                            if (msg.contains("收藏成功")) {
+                                collection.setImageResource(R.mipmap.ic_coll);
+                            } else {
+                                collection.setImageResource(R.mipmap.ic_coll_normal);
+                            }
                         }
-                    }
 
-                    @Override
-                    protected void onError(String response) {
-                        showToast(response);
-                    }
-                });
+                        @Override
+                        protected void onError(String response) {
+                            showToast(response);
+                        }
+                    });
+
+        }
 
     }
 
     public void checkCollection(String doctor_name) {
-        OkGo.<String>get(ApiConstants.CHECKCOLLECTION_URL)
-                .params("doctor_name", doctor_name)
-                .execute(new HttpStringCallback(this) {
-                    @Override
-                    protected void onSuccess(String msg, String response) {
-                        if (msg.contains("收藏成功")) {
-                            collection.setImageResource(R.mipmap.ic_coll);
-                        } else {
-                            collection.setImageResource(R.mipmap.ic_coll_normal);
+        UserInfo userInfo = ApiConstants.getUserInfo();
+        if (null != userInfo) {
+            OkGo.<String>get(ApiConstants.CHECKCOLLECTION_URL)
+                    .params("doctor_name", doctor_name)
+                    .params("username", userInfo.getUsername())
+                    .execute(new HttpStringCallback(this) {
+                        @Override
+                        protected void onSuccess(String msg, String response) {
+                            if (msg.contains("已收藏")) {
+                                collection.setImageResource(R.mipmap.ic_coll);
+                            } else {
+                                collection.setImageResource(R.mipmap.ic_coll_normal);
+                            }
                         }
-                    }
 
-                    @Override
-                    protected void onError(String response) {
-                        showToast(response);
-                    }
-                });
+                        @Override
+                        protected void onError(String response) {
+                            showToast(response);
+                        }
+                    });
+
+        }
 
     }
+
+    private void createOrderInfo(String order_time, String time_state, String order_price) {
+        UserInfo userInfo = ApiConstants.getUserInfo();
+        if (null != userInfo) {
+            OkGo.<String>get(ApiConstants.CREATE_ORDER_URL)
+                    .params("username", userInfo.getUsername())
+                    .params("doctor_name", doctorInfo.getDoctor_name())
+                    .params("depart_name", doctorInfo.getDepart_name())
+                    .params("good_at", doctorInfo.getGood_at())
+                    .params("order_number", Tools.getRandom(10))
+                    .params("order_time", order_time)
+                    .params("time_state", time_state)
+                    .params("order_price", order_price)
+                    .params("order_state", 0)
+                    .execute(new HttpStringCallback(this) {
+                        @Override
+                        protected void onSuccess(String msg, String response) {
+                            showToast(msg);
+                        }
+
+                        @Override
+                        protected void onError(String response) {
+                            showToast(response);
+                        }
+                    });
+
+
+        }
+    }
+
 }
