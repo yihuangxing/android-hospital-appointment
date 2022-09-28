@@ -89,4 +89,11 @@ public class ApiConstants {
 
     //删除预约记录
     public final static String DEL_ORDER_URL = BASE_URL + "/user/delOrder";
+
+    //获取用户注册数据
+    public final static String USER_LIST_URL = BASE_URL + "/user/userList";
+
+
+    //删除用户数据
+    public final static String DEL_USER_URL = BASE_URL + "/user/delUser";
 }

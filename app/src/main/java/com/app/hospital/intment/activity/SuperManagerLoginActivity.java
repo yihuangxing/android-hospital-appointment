@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.app.hospital.intment.ApiConstants;
 import com.app.hospital.intment.R;
 import com.app.hospital.intment.base.BaseActivity;
 import com.app.hospital.intment.entity.UserInfo;
 import com.app.hospital.intment.http.HttpStringCallback;
+import com.app.hospital.intment.utils.CodeUtils;
 import com.app.hospital.intment.utils.GsonUtils;
 import com.lzy.okgo.OkGo;
 
@@ -17,10 +19,11 @@ import com.lzy.okgo.OkGo;
  * 管理员登录
  */
 public class SuperManagerLoginActivity extends BaseActivity {
-
     private EditText username;
     private EditText password;
-    private EditText mobile;
+    private EditText show_code;
+    private ImageView img_code;
+    private String realCode;
 
     @Override
     protected int getLayoutId() {
@@ -29,11 +32,10 @@ public class SuperManagerLoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        mobile = findViewById(R.id.mobile);
-
+        img_code = findViewById(R.id.img_code);
+        show_code = findViewById(R.id.show_code);
     }
 
     @Override
@@ -53,18 +55,31 @@ public class SuperManagerLoginActivity extends BaseActivity {
             public void onClick(View view) {
                 String username_str = username.getText().toString().trim();
                 String password_str = password.getText().toString().trim();
-                if (TextUtils.isEmpty(username_str) || TextUtils.isEmpty(password_str)) {
+                String code_str = show_code.getText().toString().trim();
+                if (TextUtils.isEmpty(username_str) || TextUtils.isEmpty(password_str) || TextUtils.isEmpty(code_str)) {
                     showToast("请完善登录信息");
+                } else if (!code_str.equals(realCode)) {
+                    showToast("验证码错误");
                 } else {
                     login(username_str, password_str);
                 }
+            }
+        });
+
+
+        findViewById(R.id.img_code).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_code.setImageBitmap(CodeUtils.getInstance().createBitmap());
+                realCode = CodeUtils.getInstance().getCode().toLowerCase();
             }
         });
     }
 
     @Override
     protected void initData() {
-
+        img_code.setImageBitmap(CodeUtils.getInstance().createBitmap());
+        realCode = CodeUtils.getInstance().getCode().toLowerCase();
     }
 
 

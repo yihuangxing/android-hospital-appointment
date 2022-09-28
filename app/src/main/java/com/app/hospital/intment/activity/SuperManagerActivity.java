@@ -46,6 +46,13 @@ public class SuperManagerActivity extends BaseActivity {
                 startActivity(new Intent(SuperManagerActivity.this, OrderListActivity.class));
             }
         });
+
+        findViewById(R.id.user_manager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SuperManagerActivity.this, UserListActivity.class));
+            }
+        });
     }
 
     @Override

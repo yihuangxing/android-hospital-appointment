@@ -11,6 +11,7 @@
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_list.xml" value="0.24895833333333334" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_login.xml" value="0.2140625" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_main.xml" value="0.22552083333333334" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_order_list.xml" value="0.24427083333333333" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_register.xml" value="0.19895833333333332" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_doctor_schedul.xml" value="0.21458333333333332" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_main.xml" value="0.26458333333333334" />
@@ -27,6 +28,7 @@
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_update_doctor.xml" value="0.2264151024877837" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_update_pwd.xml" value="0.21822916666666667" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_update_schedul_list.xml" value="0.2630208333333333" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_list.xml" value="0.19791666666666666" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_login.xml" value="0.25" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_main.xml" value="0.23072916666666668" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/activity_user_register.xml" value="0.2640625" />
@@ -38,6 +40,7 @@
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/fragment_order.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/order_list_item.xml" value="0.2988679352838745" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/schedul_item.xml" value="0.2630208333333333" />
+        <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/layout/user_list_item.xml" value="0.196875" />
         <entry key="..\:/AndroidProject/Android-hospital-appointment/app/src/main/res/xml/network_security_config.xml" value="0.25052083333333336" />
       </map>
     </option>

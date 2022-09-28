@@ -32,6 +32,13 @@ public class DoctorMainActivity extends BaseActivity {
             }
         });
 
+        findViewById(R.id.doctor_order).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DoctorMainActivity.this, DoctorOrderListActivity.class));
+            }
+        });
+
     }
 
     @Override

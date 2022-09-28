@@ -61,8 +61,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:background="@null"
-                    android:text="赵铁柱"
                     android:hint="请输入医生姓名"
+                    android:text="赵铁柱"
                     android:textSize="14sp" />
 
 
@@ -101,12 +101,62 @@
                     android:layout_marginLeft="10dp"
                     android:background="@null"
                     android:hint="请输入密码"
-                    android:text="123456"
                     android:inputType="textPassword"
+                    android:text="123456"
                     android:textSize="14sp" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#f5f5f5"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="验证码:"
+                    android:textColor="@color/text_color" />
+
+
+                <EditText
+                    android:id="@+id/show_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toLeftOf="@id/img_code"
+                    android:layout_toRightOf="@id/code"
+                    android:background="@null"
+                    android:hint="请输入密码"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:id="@+id/img_code"
+                    android:layout_width="75dp"
+                    android:layout_height="43dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp" />
+
+
+            </RelativeLayout>
 
 
         </androidx.cardview.widget.CardView>

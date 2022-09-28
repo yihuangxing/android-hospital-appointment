@@ -20,7 +20,7 @@ import com.app.hospital.intment.base.BaseFragment;
 import com.app.hospital.intment.entity.UserInfo;
 
 public class MineFragment extends BaseFragment {
-    private TextView mobile, username;
+    private TextView mobile, username, age, card, gender;
 
 
     @Override
@@ -32,6 +32,9 @@ public class MineFragment extends BaseFragment {
     protected void initView() {
         mobile = rootView.findViewById(R.id.mobile);
         username = rootView.findViewById(R.id.username);
+        age = rootView.findViewById(R.id.age);
+        gender = rootView.findViewById(R.id.gender);
+        card = rootView.findViewById(R.id.card);
     }
 
     @Override
@@ -80,7 +83,7 @@ public class MineFragment extends BaseFragment {
         rootView.findViewById(R.id.collection).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(getActivity(), CollectionActivity.class));
+                startActivity(new Intent(getActivity(), CollectionActivity.class));
             }
         });
 
@@ -93,6 +96,9 @@ public class MineFragment extends BaseFragment {
         if (null != userInfo) {
             username.setText(userInfo.getUsername());
             mobile.setText("手机号：" + userInfo.getMobile());
+            age.setText("年龄：" + userInfo.getAge() + "(岁)");
+            card.setText("证件号：" + userInfo.getCard());
+            gender.setText("性别：" + userInfo.getGender());
         }
     }
 

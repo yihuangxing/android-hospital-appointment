@@ -37,6 +37,12 @@
         android:theme="@style/Theme.Androidhospitalappointment"
         tools:targetApi="31">
         <activity
+            android:name=".activity.DoctorOrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.UserListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.OrderListActivity"
             android:exported="false" />
         <activity
@@ -108,7 +114,8 @@
             android:exported="false" />
         <activity
             android:name=".activity.UserMainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.UserLoginActivity"
             android:exported="true">

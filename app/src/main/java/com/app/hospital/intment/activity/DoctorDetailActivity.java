@@ -235,6 +235,8 @@ public class DoctorDetailActivity extends BaseActivity {
                     .params("time_state", time_state)
                     .params("order_price", order_price)
                     .params("order_state", 0)
+                    .params("age",userInfo.getAge())
+                    .params("gender",userInfo.getGender())
                     .execute(new HttpStringCallback(this) {
                         @Override
                         protected void onSuccess(String msg, String response) {

@@ -31,9 +31,9 @@
                 android:id="@+id/department_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="科室："
-                android:textColor="@color/text_color" />
+                android:textColor="@color/text_color"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/doctor_name"
@@ -67,6 +67,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="就诊人："
+                android:textColor="@color/text_color" />
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="性别："
+                android:textColor="@color/text_color" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="年龄："
                 android:textColor="@color/text_color" />
 
             <TextView

@@ -8,11 +8,29 @@ public class UserInfo {
     private String username;
     private String password;
     private String mobile;
-    private String avatar;
-    private String nickname;
     private String gender;
+    private int age;
+    private String card;
     private String create_time; //注册时间
-    private int register_type;   //注册类型0==用户   2==管理员
+    private int register_type;   //注册类型 0-用户 1-医生2-管理员
+    private String avatar;
+
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getCard() {
+        return card;
+    }
+
+    public void setCard(String card) {
+        this.card = card;
+    }
 
     public int getUid() {
         return uid;
@@ -46,21 +64,8 @@ public class UserInfo {
         this.mobile = mobile;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 
     public String getGender() {
         return gender;
@@ -84,5 +89,13 @@ public class UserInfo {
 
     public void setRegister_type(int register_type) {
         this.register_type = register_type;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
