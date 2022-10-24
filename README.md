@@ -15,5 +15,19 @@
 
 
 2.医生端(登录，注册，我的排班信息，我的预约)
+<img src="./image/img_9.png"/>
+<img src="./image/img_10.png"/>
+<img src="./image/img_11.png"/>
+<img src="./image/img_12.png"/>
+<img src="./image/img_13.png"/>
 
 3.管理员端(登录，注册，科室管理，医生管理，预约记录管理，用户管理)
+<img src="./image/img_14.png"/>
+<img src="./image/img_15.png"/>
+<img src="./image/img_16.png"/>
+<img src="./image/img_17.png"/>
+<img src="./image/img_18.png"/>
+<img src="./image/img_19.png"/>
+<img src="./image/img_20.png"/>
+<img src="./image/img_21.png"/>
+<img src="./image/img_22.png"/>
