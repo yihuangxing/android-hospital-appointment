@@ -37,7 +37,6 @@ public class OrderListAdapter extends BaseQuickAdapter<OrderInfo, BaseViewHolder
         } else if (orderInfo.getOrder_state() == 1) {
             baseViewHolder.setText(R.id.pay_state, "支付成功");
             baseViewHolder.setBackgroundColor(R.id.pay_state, Color.parseColor("#018786"));
-
             baseViewHolder.setTextColor(R.id.state, Color.parseColor("#018786"));
         } else {
             baseViewHolder.setText(R.id.pay_state, "预约取消");
